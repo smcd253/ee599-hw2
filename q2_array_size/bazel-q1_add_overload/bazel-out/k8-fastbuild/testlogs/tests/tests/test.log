@@ -1,0 +1,20 @@
+exec ${PAGER:-/usr/bin/less} "$0" || exit 1
+Executing tests from //tests:tests
+-----------------------------------------------------------------------------
+Running main() from gmock_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from ADD_TEST
+[ RUN      ] ADD_TEST.OVERLOAD1_ADD_INTS
+[       OK ] ADD_TEST.OVERLOAD1_ADD_INTS (0 ms)
+[ RUN      ] ADD_TEST.OVERLOAD2_ADD_STRINGS
+[       OK ] ADD_TEST.OVERLOAD2_ADD_STRINGS (0 ms)
+[ RUN      ] ADD_TEST.OVERLOAD3_ADD_STRING_INT
+[       OK ] ADD_TEST.OVERLOAD3_ADD_STRING_INT (0 ms)
+[ RUN      ] ADD_TEST.OVERLOAD4_ADD_INT_STRING
+[       OK ] ADD_TEST.OVERLOAD4_ADD_INT_STRING (0 ms)
+[----------] 4 tests from ADD_TEST (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 1 test case ran. (0 ms total)
+[  PASSED  ] 4 tests.
