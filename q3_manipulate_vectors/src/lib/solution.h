@@ -10,6 +10,8 @@ class Solution {
 public:
     std::vector<int> remove_duplicates(std::vector<int> has_duplicates);
     std::vector<int> remove_duplicates_raw(std::vector<int> has_duplicates);
+
+    std::vector<int> reverse(std::vector<int> input);
 };
 
 #endif

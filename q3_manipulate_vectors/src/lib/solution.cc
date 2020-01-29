@@ -3,7 +3,7 @@
 std::vector<int> Solution::remove_duplicates(std::vector<int> has_duplicates)
 {
     std::set<int> set_filter;
-    std::set<int>::iterator it;
+    std::set<int>::iterator it = set_filter.begin();
 
     for (auto n : has_duplicates)
     {
@@ -41,3 +41,15 @@ std::vector<int> Solution::remove_duplicates_raw(std::vector<int> has_duplicates
     }
     return no_duplicates;
 }
+
+std::vector<int> Solution::reverse(std::vector<int> input)
+{
+    std::vector<int> result;
+    std::vector<int>::iterator it_in;
+
+    for (it_in = input.begin(); it_in != input.end(); it_in++)
+    {
+        result.insert(result.begin(), *it_in);
+    }
+}
+

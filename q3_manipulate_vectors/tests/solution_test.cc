@@ -2,11 +2,10 @@
 #include "gtest/gtest.h"
 #include <vector>
 
-// TEST(ADD_TEST, OVERLOAD1_ADD_INTS) {
-//   Solution solution;
-//   int a = 1;
-//   int b = 2;
-//   int actual = solution.add(a, b);
-//   int expected = 3;
-//   EXPECT_EQ(expected, actual);
-// }
+TEST(REVERSE_TEST, STANDARD) {
+  Solution solution;
+  std::vector<int> my_vector = {1, 2, 3, 4, 5};
+  std::vector<int> actual = solution.reverse(my_vector);
+  std::vector<int> expected = {5, 4, 3, 2, 1};
+  EXPECT_EQ(expected, actual);
+}

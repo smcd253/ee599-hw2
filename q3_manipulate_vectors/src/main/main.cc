@@ -66,5 +66,35 @@ int main()
         }
         
     }
+
+    std::cout << "Reverse Vector: " << std::endl;
+    no_duplicates = solution.reverse(duplicates);    
+    std::cout << "duplicate array = {";
+    for(it = duplicates.begin(); it != duplicates.end(); it++)
+    {
+        if (it < duplicates.end() - 1)
+        {
+            std::cout << std::to_string(*it) << ", ";
+        }
+        else
+        {
+            std::cout << std::to_string(*it) << "}" << std::endl;
+        }
+        
+    }
+
+    std::cout << "Reversed vector = {";
+    for(it = no_duplicates.begin(); it != no_duplicates.end(); it++)
+    {
+        if (it < no_duplicates.end() - 1)
+        {
+            std::cout << std::to_string(*it) << ", ";
+        }
+        else
+        {
+            std::cout << std::to_string(*it) << "}" << std::endl;
+        }
+        
+    }
     return EXIT_SUCCESS;
 }
