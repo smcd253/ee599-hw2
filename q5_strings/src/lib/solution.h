@@ -6,8 +6,7 @@
 
 class Solution {
 public:
-  void swap(int& a, int& b);
-  void swap(int* a, int* b);
+  std::string swap(std::string input, size_t ind1, size_t ind2);
 };
 
 #endif
