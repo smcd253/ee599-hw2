@@ -1,4 +1,4 @@
-# EE599 - HW2 - Q1
+# EE599 - HW2 - Q2
 **Spencer McDonough**
 **02/03/2020**
 
