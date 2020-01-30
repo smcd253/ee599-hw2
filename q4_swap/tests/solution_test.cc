@@ -7,8 +7,8 @@ TEST(REFERENCE_SWAP_TEST, STANDARD) {
   int a = 1;
   int b = 2;
   solution.swap(&a, &b);
-  bool expected[] = {true, true};
-  bool actual[] = {a == 2, b ==1}
+  bool expected = true;
+  bool actual = (a == 2) && (b == 1);
   EXPECT_EQ(expected, actual);
 }
 
@@ -20,7 +20,7 @@ TEST(POINTER_SWAP_TEST, STANDARD) {
   int *B = &b;
 
   solution.swap(A, B);
-  bool expected[] = {true, true};
-  bool actual[] = {a == 2, b ==1}
+  bool expected = true;
+  bool actual = (a == 2) && (b == 1);
   EXPECT_EQ(expected, actual);
 }
