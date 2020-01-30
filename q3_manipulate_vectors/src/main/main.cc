@@ -96,5 +96,67 @@ int main()
         }
         
     }
+
+    std::cout << "Remove Odds: " << std::endl;
+    no_duplicates = solution.remove_odds(duplicates);    
+    std::cout << "duplicate array = {";
+    for(it = duplicates.begin(); it != duplicates.end(); it++)
+    {
+        if (it < duplicates.end() - 1)
+        {
+            std::cout << std::to_string(*it) << ", ";
+        }
+        else
+        {
+            std::cout << std::to_string(*it) << "}" << std::endl;
+        }
+        
+    }
+
+    std::cout << "No Odds Vector = {";
+    for(it = no_duplicates.begin(); it != no_duplicates.end(); it++)
+    {
+        if (it < no_duplicates.end() - 1)
+        {
+            std::cout << std::to_string(*it) << ", ";
+        }
+        else
+        {
+            std::cout << std::to_string(*it) << "}" << std::endl;
+        }
+        
+    }
+
+    std::cout << "Concat: " << std::endl;
+    no_duplicates = solution.concat(duplicates, no_duplicates);    
+    std::cout << "Concat Vector = {";
+    for(it = no_duplicates.begin(); it != no_duplicates.end(); it++)
+    {
+        if (it < no_duplicates.end() - 1)
+        {
+            std::cout << std::to_string(*it) << ", ";
+        }
+        else
+        {
+            std::cout << std::to_string(*it) << "}" << std::endl;
+        }
+        
+    }
+
+    std::cout << "Union: " << std::endl;
+    no_duplicates = solution.__union__(duplicates, no_duplicates);    
+    std::cout << "Union Vector = {";
+    for(it = no_duplicates.begin(); it != no_duplicates.end(); it++)
+    {
+        if (it < no_duplicates.end() - 1)
+        {
+            std::cout << std::to_string(*it) << ", ";
+        }
+        else
+        {
+            std::cout << std::to_string(*it) << "}" << std::endl;
+        }
+        
+    }
     return EXIT_SUCCESS;
 }
