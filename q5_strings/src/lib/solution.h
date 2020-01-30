@@ -7,6 +7,7 @@
 class Solution {
 public:
   std::string swap(std::string input, size_t ind1, size_t ind2);
+  std::string reverse(std::string input);
 };
 
 #endif

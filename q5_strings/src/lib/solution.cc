@@ -20,3 +20,15 @@ std::string Solution::swap(std::string input, size_t ind1, size_t ind2)
 
   return input;
 }
+
+std::string Solution::reverse(std::string input)
+{
+  std::string result;
+  std::string::iterator it_in;
+  for (it_in = input.begin(); it_in != input.end(); it_in++)
+  {
+      result.insert(result.begin(), *it_in);
+  }
+
+  return result;
+}
