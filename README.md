@@ -1,6 +1,10 @@
 # ee599-hw2
 Arrays, Vectors, and Strings
 
+## Notes from Piazza
+- Q6: drop ALL special characters
+- Q3: test EXPECT_WQ(input, expected_output) bc you are passing by ref
+
 ## Question 1 - Overloading
 
 ## Question 2 - Size of Arrays
