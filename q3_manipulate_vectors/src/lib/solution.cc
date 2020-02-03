@@ -1,102 +1,120 @@
 #include "solution.h"
 
-std::vector<int> Solution::remove_duplicates(std::vector<int> has_duplicates)
+void Solution::remove_duplicates(std::vector<int>& input)
 {
-    std::set<int> set_filter;
-    std::set<int>::iterator it = set_filter.begin();
-
-    for (auto n : has_duplicates)
+    if(&input != NULL)
     {
-        set_filter.insert(it, n);
-    }
+        std::set<int> set_filter;
+        std::set<int>::iterator it = set_filter.begin();
 
-    std::vector<int> no_duplicates(set_filter.begin(), set_filter.end());
-    return no_duplicates;
+        for (auto n : input)
+        {
+            set_filter.insert(it, n);
+        }
+
+        std::vector<int> no_duplicates(set_filter.begin(), set_filter.end());
+        input.swap(no_duplicates);
+    }
 }
 
-std::vector<int> Solution::remove_duplicates_raw(std::vector<int> has_duplicates)
+void Solution::remove_duplicates_raw(std::vector<int>& input)
 {
-    std::vector<int> no_duplicates;
     std::vector<int>::iterator it;
+    std::vector<int>::iterator _it;
 
-    for (it = has_duplicates.begin(); it != has_duplicates.end(); it++)
+    for (it = input.begin(); it != input.end(); it++)
     {
-        // check if n already added to no_duplicates
-        bool add_it = true;
-        std::vector<int>::iterator _it;
-        for (_it = no_duplicates.begin(); _it != no_duplicates.end(); _it++)
-        {
-            if (*it == *_it)
+        // erase all duplicate instances of this value
+        if (it < input.end() - 1)
+        {   
+            _it = it + 1;
+            while (_it != input.end())
             {
-                add_it = false;
+                if (*it == *_it)
+                {
+                    input.erase(_it);
+                }
+                else
+                {
+                    _it++;
+                }
             }
         }
+    }
+}
 
-        // add if not alrady added
-        if(add_it)
+void Solution::reverse(std::vector<int>& input)
+{
+    std::vector<int>::iterator it = input.begin();
+    std::vector<int>::iterator it_dwn = input.end() - 1;
+    int temp;
+    for (size_t i = 0; i < input.size() / 2; i++)
+    {
+        // swap variables from top to bottom
+        if(it != it_dwn)
         {
-            no_duplicates.push_back(*it);
+            temp = *it;
+            *it = *it_dwn;
+            *it_dwn = temp;
         }
-    }
-    return no_duplicates;
-}
-
-std::vector<int> Solution::reverse(std::vector<int> input)
-{
-    std::vector<int> result;
-    std::vector<int>::iterator it_in;
-    for (it_in = input.begin(); it_in != input.end(); it_in++)
-    {
-        result.insert(result.begin(), *it_in);
-    }
-
-    return result;
-}
-
-std::vector<int> Solution::remove_odds(std::vector<int> input)
-{
-    std::vector<int> result;
-    std::vector<int>::iterator it_in;
-
-    for (it_in = input.begin(); it_in != input.end(); it_in++)
-    {
-        if(*it_in%2 == 0)
+        // exit loop if vector is of odd size and we are at middle element
+        else
         {
-            result.insert(result.end(), *it_in);
+            break;
         }
+        it++;
+        it_dwn--;
     }
-
-    return result;
 }
 
-std::vector<int> Solution::concat(std::vector<int> input1, std::vector<int> input2)
+void Solution::remove_odds(std::vector<int>& input)
+{
+    std::vector<int>::iterator it = input.begin();
+    while(it != input.end())
+    {
+        if(*it % 2 != 0)
+        {
+            input.erase(it);
+        }
+        else
+        {
+            it++;
+        }
+        
+    }
+}
+
+std::vector<int> Solution::concat(std::vector<int>& input1, std::vector<int>& input2)
 {
     std::vector<int> result;
-    std::vector<int>::iterator it_in;
+    std::vector<int>::iterator it;
 
-    for (it_in = input1.begin(); it_in != input1.end(); it_in++)
+    for (it = input1.begin(); it != input1.end(); it++)
     {
-        result.insert(result.end(), *it_in);
+        result.insert(result.end(), *it);
     }
-    for (it_in = input2.begin(); it_in != input2.end(); it_in++)
+    for (it = input2.begin(); it != input2.end(); it++)
     {
-        result.insert(result.end(), *it_in);
+        result.insert(result.end(), *it);
     }
     return result;
 }
 
-std::vector<int> Solution::__union__(std::vector<int> input1, std::vector<int> input2)
+std::vector<int> Solution::intersection(std::vector<int>& input1, std::vector<int>& input2)
 {
     std::set<int> set_filter;
-    std::set<int>::iterator it = set_filter.begin();
+    std::vector<int>::iterator it1;
+    std::vector<int>::iterator it2;
 
-    for (auto n : input1)
+    for (it1 = input1.begin(); it1 != input1.end(); it1++)
     {
-        set_filter.insert(it, n);
-    }
-    for (auto n : input2)
-    {
-        set_filter.insert(it, n);
+        for(it2 = input2.begin(); it2 != input2.end(); it2++)
+        {
+            if(*it1 == *it2)
+            {
+                set_filter.insert(set_filter.begin(), *it1);
+            }
+        }
     }
 
     std::vector<int> result(set_filter.begin(), set_filter.end());
