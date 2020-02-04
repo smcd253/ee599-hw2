@@ -182,6 +182,64 @@ TEST(REMOVE_ODDS_TEST, STANDARD) {
   EXPECT_EQ(expected, my_vector);
 }
 
+TEST(REMOVE_ODDS_TEST, EVEN_ONLY) {
+  Solution solution;
+  std::vector<int> my_vector = {0, 2, 4};
+  solution.remove_odds(my_vector);
+  std::vector<int> expected = {0, 2, 4};
+  EXPECT_EQ(expected, my_vector);
+}
+
+TEST(REMOVE_ODDS_TEST, EMPTY) {
+  Solution solution;
+  std::vector<int> my_vector = {};
+  solution.remove_odds(my_vector);
+  std::vector<int> expected = {};
+  EXPECT_EQ(expected, my_vector);
+}
+
+TEST(REMOVE_ODDS_TEST, SINGLETON) {
+  Solution solution;
+  std::vector<int> my_vector = {1};
+  solution.remove_odds(my_vector);
+  std::vector<int> expected = {1};
+  EXPECT_EQ(expected, my_vector);
+}
+
+TEST(REMOVE_ODDS_TEST, DOUBLE_ENTRY) {
+  Solution solution;
+  std::vector<int> my_vector = {1, 2};
+  solution.remove_odds(my_vector);
+  std::vector<int> expected = {2};
+  EXPECT_EQ(expected, my_vector);
+}
+
+TEST(REMOVE_ODDS_TEST, NEGATIVES) {
+  Solution solution;
+  std::vector<int> my_vector = {-1, -3};
+  solution.remove_odds(my_vector);
+  std::vector<int> expected = {-3, -1};
+  EXPECT_EQ(expected, my_vector);
+}
+
+TEST(REMOVE_ODDS_TEST, LARGE) {
+  Solution solution;
+  std::vector<int> my_vector;
+  std::vector<int> expected;
+  for (int i = 0; i < INT8_MAX; i++)
+  {
+    my_vector.push_back(i);
+  }
+  for (int i = 0; i < INT8_MAX; i++)
+  {
+    if (i % 2 == 0)
+    {
+      expected.push_back(i);
+    }
+  }
+  solution.remove_odds(my_vector);
+  EXPECT_EQ(expected, my_vector);
+}
 /********************* Solution::concat() *********************/
 TEST(CONCAT_TEST, STANDARD) {
   Solution solution;
