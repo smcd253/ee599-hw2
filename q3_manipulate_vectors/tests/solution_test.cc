@@ -161,11 +161,11 @@ TEST(REVERSE_TEST, LARGE) {
   Solution solution;
   std::vector<int> my_vector;
   std::vector<int> expected;
-  for (int i = 0; i < INT16_MAX; i++)
+  for (int i = 0; i < INT8_MAX; i++)
   {
     my_vector.push_back(i);
   }
-  for (int i = INT16_MAX - 1; i >= 0; i++)
+  for (int i = INT8_MAX - 1; i >= 0; i--)
   {
     expected.push_back(i);
   }
