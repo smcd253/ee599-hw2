@@ -18,10 +18,10 @@ int Solution::add(int a, int b)
 }
 
 // overload 2
-std::string Solution::add(std::string a, std::string b)
+std::string Solution::add(std::string& a, std::string& b)
 {
   std::string result;
-  int total_size = a.size() + b.size();
+  long unsigned int total_size = a.size() + b.size();
 
   if (total_size <= result.max_size())
   {
@@ -37,15 +37,16 @@ std::string Solution::add(std::string a, std::string b)
 }
 
 // overload 3
-std::string Solution::add(std::string a, int b)
+std::string Solution::add(std::string& a, int b)
 {
+  std::string result;
   std::string b_str = std::to_string(b);
-  int total_size = a.size() + b_str.size();
+  long unsigned int total_size = a.size() + b_str.size();
 
   if (total_size <= result.max_size())
   {
     result.append(a);
-    result.append(b);
+    result.append(b_str);
   }
   else
   {
@@ -56,14 +57,15 @@ std::string Solution::add(std::string a, int b)
 }
 
 // overload 4
-std::string Solution::add(int a, std::string b)
+std::string Solution::add(int a, std::string& b)
 {
+  std::string result;
   std::string a_str = std::to_string(a);
-  int total_size = a_str.size() + b.size();
+  long unsigned int total_size = a_str.size() + b.size();
 
   if (total_size <= result.max_size())
   {
-    result.append(a);
+    result.append(a_str);
     result.append(b);
   }
   else

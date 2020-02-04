@@ -18,6 +18,30 @@ TEST(PALINDROME_TEST, STANDARD_FALSE) {
   EXPECT_EQ(expected, actual);
 }
 
+TEST(PALINDROME_TEST, EMPTY_FALSE) {
+  Solution solution;
+  std::string test = "";
+  bool expected = false;
+  bool actual = solution.palindrome(test);
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(PALINDROME_TEST, TRAILING_SPACE_FALSE) {
+  Solution solution;
+  std::string test = "racecar ";
+  bool expected = false;
+  bool actual = solution.palindrome(test);
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(PALINDROME_TEST, LEADING_SPACE_FALSE) {
+  Solution solution;
+  std::string test = " racecar";
+  bool expected = false;
+  bool actual = solution.palindrome(test);
+  EXPECT_EQ(expected, actual);
+}
+
 TEST(APPROX_PALINBDROME_TEST, PROVIDED_TEST_CASE1_TRUE) {
   Solution solution;
   std::string test = "\"A man, a plan, a canal, Panama!\"";
@@ -46,6 +70,30 @@ TEST(APPROX_PALINBDROME_TEST, STANDARD_FALSE) {
   Solution solution;
   std::string test = "\"iS 'tHis' a pAlinDrome?!\"";
   bool expected = false;
+  bool actual = solution.approx_palindrome(test);
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(APPROX_PALINBDROME_TEST, EMPTY_FALSE) {
+  Solution solution;
+  std::string test = "";
+  bool expected = false;
+  bool actual = solution.approx_palindrome(test);
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(APPROX_PALINBDROME_TEST, SPECIAL_CHARACTERS_FALSE) {
+  Solution solution;
+  std::string test = "!@#$%^&*())(*&^%$#@!";
+  bool expected = false;
+  bool actual = solution.approx_palindrome(test);
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(APPROX_PALINBDROME_TEST, SINGLETON_TRUE) {
+  Solution solution;
+  std::string test = "A";
+  bool expected = true;
   bool actual = solution.approx_palindrome(test);
   EXPECT_EQ(expected, actual);
 }

@@ -27,7 +27,7 @@ public:
    * @returns <tt>string</tt> "ab"          On success.
    * 
    * */
-  std::string add(std::string a, std::string b);
+  std::string add(std::string& a, std::string& b);
 
   /**
    * Add overload 3.
@@ -39,7 +39,7 @@ public:
    * @returns <tt>string</tt> "ab"          On success.
    * 
    * */
-  std::string add(std::string a, int b);
+  std::string add(std::string& a, int b);
 
    /**
    * Add overload 4.
@@ -51,7 +51,7 @@ public:
    * @returns <tt>string</tt> "ab"          On success.
    * 
    * */
-  std::string add(int a, std::string b);
+  std::string add(int a, std::string& b);
 };
 
 #endif

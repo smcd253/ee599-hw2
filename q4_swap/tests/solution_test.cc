@@ -24,3 +24,11 @@ TEST(POINTER_SWAP_TEST, STANDARD) {
   bool actual = (a == 2) && (b == 1);
   EXPECT_EQ(expected, actual);
 }
+
+TEST(POINTER_SWAP_TEST, NULL_POINTER) {
+  Solution solution;
+  int* inputs[2] = {nullptr, nullptr};
+  solution.swap(inputs[0], inputs[1]);
+  int expected[2] = {-1, -1};
+  EXPECT_EQ(expected, *inputs);
+}

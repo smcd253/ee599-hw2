@@ -1,7 +1,7 @@
 #include "src/lib/solution.h"
 #include "gtest/gtest.h"
 #include <vector>
-
+/**************** add() overload1 ****************/
 TEST(ADD_OVERLOAD1_INT_TEST, STANDARD) {
   Solution solution;
   int a = 1;
@@ -38,6 +38,7 @@ TEST(ADD_OVERLOAD1_INT_TEST, NEG_TO_POS_OVERFLOW) {
   EXPECT_EQ(expected, actual);
 }
 
+/**************** add() overload2 ****************/
 TEST(ADD_OVERLOAD2_STRINGS_TEST, STANDARD) {
   Solution solution;
   std::string a = "a";
@@ -74,20 +75,21 @@ TEST(ADD_OVERLOAD2_STRINGS_TEST, EMPTY_BOTH) {
   EXPECT_EQ(expected, actual);
 }
 
-TEST(ADD_OVERLOAD2_STRINGS_TEST, TOO_LARGE) {
-  Solution solution;
-  std::string a;
-  for (int i = 0; i < a.max_size(); i++)
-  {
-    a.append("a");
-  }
-  std::string b = "b";
-  std::string actual = solution.add(a, b);
-  std::string expected = "invalid: input string(s) too large!";
-  EXPECT_EQ(expected, actual);
-}
+// TEST(ADD_OVERLOAD2_STRINGS_TEST, STRING_TOO_LARGE) {
+//   Solution solution;
+//   std::string a;
+//   for (int i = 0; i < a.max_size(); i++)
+//   {
+//     a.append("a");
+//   }
+//   std::string b = "b";
+//   std::string actual = solution.add(a, b);
+//   std::string expected = "invalid: input string(s) too large!";
+//   EXPECT_EQ(expected, actual);
+// }
 
-TEST(ADD_TEST, OVERLOAD3_ADD_STRING_INT) {
+/**************** add() overload3 ****************/
+TEST(ADD_OVERLOAD3_STRING_INT_TEST, STANDARD) {
   Solution solution;
   std::string a = "a";
   int b = 1;
@@ -96,7 +98,30 @@ TEST(ADD_TEST, OVERLOAD3_ADD_STRING_INT) {
   EXPECT_EQ(expected, actual);
 }
 
-TEST(ADD_TEST, OVERLOAD4_ADD_INT_STRING) {
+TEST(ADD_OVERLOAD3_STRING_INT_TEST, EMPTY_STRING) {
+  Solution solution;
+  std::string a = "";
+  int b = 1;
+  std::string actual = solution.add(a, b);
+  std::string expected = "1";
+  EXPECT_EQ(expected, actual);
+}
+
+// TEST(ADD_OVERLOAD3_STRING_INT_TEST, STRING_TOO_LARGE) {
+//   Solution solution;
+//   std::string a;
+//   for (int i = 0; i < a.max_size(); i++)
+//   {
+//     a.append("a");
+//   }
+//   int b = 1;
+//   std::string actual = solution.add(a, b);
+//   std::string expected = "invalid: input string(s) too large!";
+//   EXPECT_EQ(expected, actual);
+// }
+
+/**************** add() overload4 ****************/
+TEST(ADD_OVERLOAD4_INT_STRING_TEST, STANDARD) {
   Solution solution;
   int a = 1;
   std::string b = "b";
@@ -104,3 +129,25 @@ TEST(ADD_TEST, OVERLOAD4_ADD_INT_STRING) {
   std::string expected = "1b";
   EXPECT_EQ(expected, actual);
 }
+
+TEST(ADD_OVERLOAD4_INT_STRING_TEST, EMPTY_STRING) {
+  Solution solution;
+  int a = 1;
+  std::string b = "";
+  std::string actual = solution.add(a, b);
+  std::string expected = "1";
+  EXPECT_EQ(expected, actual);
+}
+
+// TEST(ADD_OVERLOAD4_INT_STRING_TEST, STRING_TOO_LARGE) {
+//   Solution solution;
+//   int a = 1;
+//   std::string b;
+//   for (int i = 0; i < b.max_size(); i++)
+//   {
+//     b.append("b");
+//   }
+//   std::string actual = solution.add(a, b);
+//   std::string expected = "invalid: input string(s) too large!";
+//   EXPECT_EQ(expected, actual);
+// }

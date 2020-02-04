@@ -6,9 +6,14 @@ std::string Solution::swap(std::string input, size_t ind1, size_t ind2)
   if(input.empty() ||
     ind1 >= input.size() ||
     ind2 >= input.size() ||
-    abs(ind2 - ind1) > input.size())
+    ind1 < 0 || ind2 < 0 ||
+    input.size() > input.max_size())
   {
     return "invalid";
+  }
+  else if (input.empty())
+  {
+    return "";
   }
 
   // swap
@@ -23,6 +28,16 @@ std::string Solution::swap(std::string input, size_t ind1, size_t ind2)
 
 std::string Solution::reverse(std::string input)
 {
+  // input validation
+  if(input.size() > input.max_size())
+  {
+    return "invalid";
+  }
+  else if (input.empty())
+  {
+    return "";
+  }
+
   std::string result;
   std::string::iterator it_in;
   for (it_in = input.begin(); it_in != input.end(); it_in++)

@@ -1,11 +1,31 @@
 # ee599-hw2
 Arrays, Vectors, and Strings
 
-## Notes from Piazza
-- Q6: drop ALL special characters
-- Q3: test EXPECT_WQ(input, expected_output) bc you are passing by ref
-
 ## Question 1 - Overloading
+**Runtime Analysis**
+```
+//overload 1
+int Solution::add(int a, int b){}
+```
+Runtime = &Theta;(8) --> O(1)
+
+```
+//overload 2
+std::string Solution::add(std::string& a, std::string& b){}
+```
+Runtime = &Theta;(7) --> O(1)
+
+```
+//overload 3
+std::string Solution::add(std::string& a, int b) {}
+```
+Runtime = &Theta;(7 + log(b)) --> O(1) (where log(b) represents the number of steps required to convert int b into a string)
+
+```
+// overload 4
+std::string Solution::add(int a, std::string& b) {}
+```
+Runtime = &Theta;(log(a) + 7) --> O(1) (where log(a) represents the number of steps required to convert int a into a string)
 
 ## Question 2 - Size of Arrays
 You can find the size of arrays by iterating over their memory locations. By adding 1 to the address of any array, dereferencing this address, and then subtracting the original array pointer, we can get the size of the array. 

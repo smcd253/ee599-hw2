@@ -42,8 +42,8 @@ std::string clean(std::string input)
 
   for (it = input.begin(); it != input.end(); it++)
   {
-    // remove punctuation and spaces
-    if(!std::ispunct(*it) && !std::isspace(*it))
+    // remove punctuation, spaces, and special characters
+    if(std::isalpha(*it))
     {
       // convert uppercase to lowercase
       if(*it <= 90)
@@ -69,7 +69,10 @@ bool Solution::approx_palindrome(std::string input)
 
   // clean input (remove spaces and punctuation)
   std::string input_clean = clean(input);
-
+  if (input_clean.empty())
+  {
+    return false;
+  }
   // reverse input and compare
   std::string result = reverse(input_clean);
 
