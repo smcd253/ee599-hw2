@@ -13,6 +13,7 @@ int Solution::add(int a, int b)
   {
     result = INT32_MIN;
   }
+  
   return result;
 }
 
@@ -29,19 +30,46 @@ std::string Solution::add(std::string a, std::string b)
   }
   else
   {
-    result.append("invalid");
+    result.append("invalid: input string(s) too large!");
   }
+
   return result;
 }
 
 // overload 3
 std::string Solution::add(std::string a, int b)
 {
-  return a.append(std::to_string(b));
+  std::string b_str = std::to_string(b);
+  int total_size = a.size() + b_str.size();
+
+  if (total_size <= result.max_size())
+  {
+    result.append(a);
+    result.append(b);
+  }
+  else
+  {
+    result.append("invalid: input string(s) too large!");
+  }
+  
+  return result;
 }
 
 // overload 4
 std::string Solution::add(int a, std::string b)
 {
-  return std::to_string(a).append(b);
+  std::string a_str = std::to_string(a);
+  int total_size = a_str.size() + b.size();
+
+  if (total_size <= result.max_size())
+  {
+    result.append(a);
+    result.append(b);
+  }
+  else
+  {
+    result.append("invalid: input string(s) too large!");
+  }
+
+  return result;
 }

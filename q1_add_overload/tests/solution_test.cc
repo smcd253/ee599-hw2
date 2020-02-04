@@ -59,7 +59,7 @@ TEST(ADD_OVERLOAD2_STRINGS_TEST, EMPTY_1) {
 TEST(ADD_OVERLOAD2_STRINGS_TEST, EMPTY_2) {
   Solution solution;
   std::string a = "a";
-  std::string b = "b";
+  std::string b = "";
   std::string actual = solution.add(a, b);
   std::string expected = "a";
   EXPECT_EQ(expected, actual);
@@ -83,7 +83,7 @@ TEST(ADD_OVERLOAD2_STRINGS_TEST, TOO_LARGE) {
   }
   std::string b = "b";
   std::string actual = solution.add(a, b);
-  std::string expected = "invalid";
+  std::string expected = "invalid: input string(s) too large!";
   EXPECT_EQ(expected, actual);
 }
 
