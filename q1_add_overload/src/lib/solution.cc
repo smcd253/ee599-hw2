@@ -19,7 +19,19 @@ int Solution::add(int a, int b)
 // overload 2
 std::string Solution::add(std::string a, std::string b)
 {
-  return a.append(b);
+  std::string result;
+  int total_size = a.size() + b.size();
+
+  if (total_size <= result.max_size())
+  {
+    result.append(a);
+    result.append(b);
+  }
+  else
+  {
+    result.append("invalid");
+  }
+  return result;
 }
 
 // overload 3

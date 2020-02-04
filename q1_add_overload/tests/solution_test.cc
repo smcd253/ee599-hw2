@@ -38,12 +38,52 @@ TEST(ADD_OVERLOAD1_INT_TEST, NEG_TO_POS_OVERFLOW) {
   EXPECT_EQ(expected, actual);
 }
 
-TEST(ADD_TEST, OVERLOAD2_ADD_STRINGS) {
+TEST(ADD_OVERLOAD2_STRINGS_TEST, STANDARD) {
   Solution solution;
   std::string a = "a";
   std::string b = "b";
   std::string actual = solution.add(a, b);
   std::string expected = "ab";
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(ADD_OVERLOAD2_STRINGS_TEST, EMPTY_1) {
+  Solution solution;
+  std::string a = "";
+  std::string b = "b";
+  std::string actual = solution.add(a, b);
+  std::string expected = "b";
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(ADD_OVERLOAD2_STRINGS_TEST, EMPTY_2) {
+  Solution solution;
+  std::string a = "a";
+  std::string b = "b";
+  std::string actual = solution.add(a, b);
+  std::string expected = "a";
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(ADD_OVERLOAD2_STRINGS_TEST, EMPTY_BOTH) {
+  Solution solution;
+  std::string a = "";
+  std::string b = "";
+  std::string actual = solution.add(a, b);
+  std::string expected = "";
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(ADD_OVERLOAD2_STRINGS_TEST, TOO_LARGE) {
+  Solution solution;
+  std::string a;
+  for (int i = 0; i < a.max_size(); i++)
+  {
+    a.append("a");
+  }
+  std::string b = "b";
+  std::string actual = solution.add(a, b);
+  std::string expected = "invalid";
   EXPECT_EQ(expected, actual);
 }
 
