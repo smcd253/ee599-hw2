@@ -262,8 +262,8 @@ TEST(CONCAT_TEST, EMPTY_1) {
 
 TEST(CONCAT_TEST, EMPTY_2) {
   Solution solution;
-  std::vector<int> my_vector1 = {};
-  std::vector<int> my_vector2 = {6, 7, 8, 9, 10};
+  std::vector<int> my_vector1 = {1, 2, 3, 4, 5};
+  std::vector<int> my_vector2 = {};
   std::vector<int> actual = solution.concat(my_vector1, my_vector2);
   std::vector<int> expected = {1, 2, 3, 4, 5};
   EXPECT_EQ(expected, actual);
@@ -317,12 +317,86 @@ TEST(CONCAT_TEST, LARGE) {
   EXPECT_EQ(expected, actual);
 }
 
-/********************* Solution::remove_duplicates() *********************/
+/********************* Solution::intersection() *********************/
 TEST(INTERSECTION_TEST, STANDARD) {
   Solution solution;
   std::vector<int> my_vector1 = {1, 2, 3, 4, 5};
   std::vector<int> my_vector2 = {5, 6, 7, 1, 10};
   std::vector<int> actual = solution.intersection(my_vector1, my_vector2);
   std::vector<int> expected = {1, 5};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(INTERSECTION_TEST, EMPTY_1) {
+  Solution solution;
+  std::vector<int> my_vector1 = {};
+  std::vector<int> my_vector2 = {6, 7, 8, 9, 10};
+  std::vector<int> actual = solution.intersection(my_vector1, my_vector2);
+  std::vector<int> expected = {};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(INTERSECTION_TEST, EMPTY_2) {
+  Solution solution;
+  std::vector<int> my_vector1 = {1, 2, 3, 4, 5};
+  std::vector<int> my_vector2 = {};
+  std::vector<int> actual = solution.intersection(my_vector1, my_vector2);
+  std::vector<int> expected = {};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(INTERSECTION_TEST, EMPTY_BOTH) {
+  Solution solution;
+  std::vector<int> my_vector1 = {};
+  std::vector<int> my_vector2 = {};
+  std::vector<int> actual = solution.intersection(my_vector1, my_vector2);
+  std::vector<int> expected = {};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(INTERSECTION_TEST, SINGLETON_NO_INTERSECTION) {
+  Solution solution;
+  std::vector<int> my_vector1 = {1};
+  std::vector<int> my_vector2 = {2};
+  std::vector<int> actual = solution.intersection(my_vector1, my_vector2);
+  std::vector<int> expected = {1, 2};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(INTERSECTION_TEST, SINGLETON_YES_INTERSECTION) {
+  Solution solution;
+  std::vector<int> my_vector1 = {2};
+  std::vector<int> my_vector2 = {2};
+  std::vector<int> actual = solution.intersection(my_vector1, my_vector2);
+  std::vector<int> expected = {2};
+  EXPEC
+
+TEST(INTERSECTION_TEST, NEGATIVES) {
+  Solution solution;
+  std::vector<int> my_vector1 = {-1, -2, -3};
+  std::vector<int> my_vector2 = {-2, -3, -4};
+  std::vector<int> actual = solution.intersection(my_vector1, my_vector2);
+  std::vector<int> expected = {-2, -3};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(INTERSECTION_TEST, LARGE) {
+  Solution solution;
+  std::vector<int> my_vector1;
+  std::vector<int> my_vector2;
+  std::vector<int> expected;
+  for (int i = 0; i < 3 * (INT16_MAX / 4); i++)
+  {
+    my_vector1.push_back(i);
+  }
+  for (int i = INT16_MAX / 4; i < INT16_MAX; i++)
+  {
+    my_vector2.push_back(i);
+  }
+  for (int i = INT16_MAX / 4; i < 3 * (INT16_MAX / 4); i++)
+  {
+    expected.push_back(i);
+  }
+  std::vector<int> actual = solution.intersection(my_vector1, my_vector2);
   EXPECT_EQ(expected, actual);
 }
