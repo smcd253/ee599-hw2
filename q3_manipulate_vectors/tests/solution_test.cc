@@ -11,13 +11,6 @@ TEST(REMOVE_DUPLICATES_TEST, STANDARD) {
   EXPECT_EQ(expected, my_vector);
 }
 
-TEST(REMOVE_DUPLICATES_TEST, NULLPTR) {
-  Solution solution;
-  std::vector<int> my_vector = (std::vector<int>)NULL;
-  solution.remove_duplicates(my_vector);
-  EXPECT_EQ(my_vector, my_vector);
-}
-
 TEST(REMOVE_DUPLICATES_TEST, EMPTY) {
   Solution solution;
   std::vector<int> my_vector = {};
@@ -42,11 +35,23 @@ TEST(REMOVE_DUPLICATES_TEST, DOUBLE_ENTRY) {
   EXPECT_EQ(expected, my_vector);
 }
 
-TEST(REMOVE_DUPLICATES_TEST, NEGATIVE_NUMBERS) {
+TEST(REMOVE_DUPLICATES_TEST, NEGATIVES) {
   Solution solution;
   std::vector<int> my_vector = {1, 2, 3, -3, 4, 1, 5};
   solution.remove_duplicates(my_vector);
   std::vector<int> expected = {-3, 1, 2, 3, 4, 5};
+  EXPECT_EQ(expected, my_vector);
+}
+
+TEST(REMOVE_DUPLICATES_TEST, LARGE) {
+  Solution solution;
+  std::vector<int> my_vector;
+  for (int i = 0; i < INT16_MAX; i++)
+  {
+    my_vector.push_back(1);
+  }
+  solution.remove_duplicates(my_vector);
+  std::vector<int> expected = {1};
   EXPECT_EQ(expected, my_vector);
 }
 
@@ -88,6 +93,18 @@ TEST(REMOVE_DUPLICATES_RAW_TEST, NEGATIVES) {
   std::vector<int> my_vector = {1, 2, 3, -3, 4, 1, 5};
   solution.remove_duplicates_raw(my_vector);
   std::vector<int> expected = {1, 2, 3, -3, 4, 5};
+  EXPECT_EQ(expected, my_vector);
+}
+
+TEST(REMOVE_DUPLICATES_RAW_TEST, LARGE) {
+  Solution solution;
+  std::vector<int> my_vector;
+  for (int i = 0; i < INT16_MAX; i++)
+  {
+    my_vector.push_back(1);
+  }
+  solution.remove_duplicates_raw(my_vector);
+  std::vector<int> expected = {1};
   EXPECT_EQ(expected, my_vector);
 }
 

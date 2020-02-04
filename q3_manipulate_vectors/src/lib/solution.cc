@@ -2,19 +2,16 @@
 
 void Solution::remove_duplicates(std::vector<int>& input)
 {
-    if(&input != NULL)
+    std::set<int> set_filter;
+    std::set<int>::iterator it = set_filter.begin();
+
+    for (auto n : input)
     {
-        std::set<int> set_filter;
-        std::set<int>::iterator it = set_filter.begin();
-
-        for (auto n : input)
-        {
-            set_filter.insert(it, n);
-        }
-
-        std::vector<int> no_duplicates(set_filter.begin(), set_filter.end());
-        input.swap(no_duplicates);
+        set_filter.insert(it, n);
     }
+
+    std::vector<int> no_duplicates(set_filter.begin(), set_filter.end());
+    input.swap(no_duplicates);
 }
 
 void Solution::remove_duplicates_raw(std::vector<int>& input)
