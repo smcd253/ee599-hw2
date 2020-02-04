@@ -202,7 +202,7 @@ TEST(REMOVE_ODDS_TEST, SINGLETON) {
   Solution solution;
   std::vector<int> my_vector = {1};
   solution.remove_odds(my_vector);
-  std::vector<int> expected = {1};
+  std::vector<int> expected = {};
   EXPECT_EQ(expected, my_vector);
 }
 
@@ -216,9 +216,9 @@ TEST(REMOVE_ODDS_TEST, DOUBLE_ENTRY) {
 
 TEST(REMOVE_ODDS_TEST, NEGATIVES) {
   Solution solution;
-  std::vector<int> my_vector = {-1, -3};
+  std::vector<int> my_vector = {-2, -3, -4};
   solution.remove_odds(my_vector);
-  std::vector<int> expected = {-3, -1};
+  std::vector<int> expected = {-2, -4};
   EXPECT_EQ(expected, my_vector);
 }
 
