@@ -369,7 +369,8 @@ TEST(INTERSECTION_TEST, SINGLETON_YES_INTERSECTION) {
   std::vector<int> my_vector2 = {2};
   std::vector<int> actual = solution.intersection(my_vector1, my_vector2);
   std::vector<int> expected = {2};
-  EXPEC
+  EXPECT_EQ(expected, actual);
+}
 
 TEST(INTERSECTION_TEST, NEGATIVES) {
   Solution solution;
