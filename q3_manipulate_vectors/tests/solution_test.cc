@@ -313,8 +313,8 @@ TEST(CONCAT_TEST, LARGE) {
   {
     expected.push_back(i);
   }
-  solution.remove_odds(my_vector);
-  EXPECT_EQ(expected, my_vector);
+  std::vector<int> actual = solution.concat(my_vector1, my_vector2);
+  EXPECT_EQ(expected, actual);
 }
 
 /********************* Solution::remove_duplicates() *********************/
