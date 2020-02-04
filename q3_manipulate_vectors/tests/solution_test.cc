@@ -226,11 +226,11 @@ TEST(REMOVE_ODDS_TEST, LARGE) {
   Solution solution;
   std::vector<int> my_vector;
   std::vector<int> expected;
-  for (int i = 0; i < INT8_MAX; i++)
+  for (int i = 0; i < INT16_MAX; i++)
   {
     my_vector.push_back(i);
   }
-  for (int i = 0; i < INT8_MAX; i++)
+  for (int i = 0; i < INT16_MAX; i++)
   {
     if (i % 2 == 0)
     {
@@ -240,6 +240,7 @@ TEST(REMOVE_ODDS_TEST, LARGE) {
   solution.remove_odds(my_vector);
   EXPECT_EQ(expected, my_vector);
 }
+
 /********************* Solution::concat() *********************/
 TEST(CONCAT_TEST, STANDARD) {
   Solution solution;
@@ -248,6 +249,72 @@ TEST(CONCAT_TEST, STANDARD) {
   std::vector<int> actual = solution.concat(my_vector1, my_vector2);
   std::vector<int> expected = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
   EXPECT_EQ(expected, actual);
+}
+
+TEST(CONCAT_TEST, EMPTY_1) {
+  Solution solution;
+  std::vector<int> my_vector1 = {};
+  std::vector<int> my_vector2 = {6, 7, 8, 9, 10};
+  std::vector<int> actual = solution.concat(my_vector1, my_vector2);
+  std::vector<int> expected = {6, 7, 8, 9, 10};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(CONCAT_TEST, EMPTY_2) {
+  Solution solution;
+  std::vector<int> my_vector1 = {};
+  std::vector<int> my_vector2 = {6, 7, 8, 9, 10};
+  std::vector<int> actual = solution.concat(my_vector1, my_vector2);
+  std::vector<int> expected = {1, 2, 3, 4, 5};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(CONCAT_TEST, EMPTY_BOTH) {
+  Solution solution;
+  std::vector<int> my_vector1 = {};
+  std::vector<int> my_vector2 = {};
+  std::vector<int> actual = solution.concat(my_vector1, my_vector2);
+  std::vector<int> expected = {};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(CONCAT_TEST, SINGLETON) {
+  Solution solution;
+  std::vector<int> my_vector1 = {1};
+  std::vector<int> my_vector2 = {2};
+  std::vector<int> actual = solution.concat(my_vector1, my_vector2);
+  std::vector<int> expected = {1, 2};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(CONCAT_TEST, NEGATIVES) {
+  Solution solution;
+  std::vector<int> my_vector1 = {-1, -2, -3};
+  std::vector<int> my_vector2 = {-4, -5, -6};
+  std::vector<int> actual = solution.concat(my_vector1, my_vector2);
+  std::vector<int> expected = {-1, -2, -3, -4, -5, -6};
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(CONCAT_TEST, LARGE) {
+  Solution solution;
+  std::vector<int> my_vector1;
+  std::vector<int> my_vector2;
+  std::vector<int> expected;
+  for (int i = 0; i < INT16_MAX / 2; i++)
+  {
+    my_vector1.push_back(i);
+  }
+  for (int i = INT16_MAX / 2 + 1; i < INT16_MAX / 2; i++)
+  {
+    my_vector2.push_back(i);
+  }
+  for (int i = 0; i < INT16_MAX; i++)
+  {
+    expected.push_back(i);
+  }
+  solution.remove_odds(my_vector);
+  EXPECT_EQ(expected, my_vector);
 }
 
 /********************* Solution::remove_duplicates() *********************/
