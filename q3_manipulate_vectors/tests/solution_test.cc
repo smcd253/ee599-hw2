@@ -305,7 +305,7 @@ TEST(CONCAT_TEST, LARGE) {
   {
     my_vector1.push_back(i);
   }
-  for (int i = INT16_MAX / 2; i < INT16_MAX / 2; i++)
+  for (int i = INT16_MAX / 2; i < INT16_MAX ; i++)
   {
     my_vector2.push_back(i);
   }
