@@ -153,7 +153,7 @@ TEST(REVERSE_TEST, NEGATIVES) {
   Solution solution;
   std::vector<int> my_vector = {-1, -2, -3};
   solution.reverse(my_vector);
-  std::vector<int> expected = {-3, -2, -1}};
+  std::vector<int> expected = {-3, -2, -1};
   EXPECT_EQ(expected, my_vector);
 }
 
@@ -165,7 +165,7 @@ TEST(REVERSE_TEST, LARGE) {
   {
     my_vector.push_back(i);
   }
-  for (int i = INT16_MAX - 1; i > 0=; i++)
+  for (int i = INT16_MAX - 1; i >= 0; i++)
   {
     expected.push_back(i);
   }
