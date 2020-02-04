@@ -2,12 +2,39 @@
 #include "gtest/gtest.h"
 #include <vector>
 
-TEST(ADD_TEST, OVERLOAD1_ADD_INTS) {
+TEST(ADD_OVERLOAD1_INT_TEST, STANDARD) {
   Solution solution;
   int a = 1;
   int b = 2;
   int actual = solution.add(a, b);
   int expected = 3;
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(ADD_OVERLOAD1_INT_TEST, ZEROS) {
+  Solution solution;
+  int a = 0;
+  int b = 0;
+  int actual = solution.add(a, b);
+  int expected = 0;
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(ADD_OVERLOAD1_INT_TEST, POS_TO_NEG_OVERFLOW) {
+  Solution solution;
+  int a = INT32_MAX;
+  int b = 10;
+  int actual = solution.add(a, b);
+  int expected = INT32_MAX;
+  EXPECT_EQ(expected, actual);
+}
+
+TEST(ADD_OVERLOAD1_INT_TEST, NEG_TO_POS_OVERFLOW) {
+  Solution solution;
+  int a = INT32_MIN;
+  int b = -10;
+  int actual = solution.add(a, b);
+  int expected = INT32_MIN;
   EXPECT_EQ(expected, actual);
 }
 

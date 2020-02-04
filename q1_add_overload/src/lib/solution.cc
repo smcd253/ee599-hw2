@@ -3,7 +3,17 @@
 // overload 1
 int Solution::add(int a, int b)
 {
-  return a + b;
+  int result = a + b;
+  // handle overflow
+  if (a > 0 && b > 0 && result < 0)
+  {
+    result = INT32_MAX;
+  }
+  else if (a < 0 && b < 0 && result > 0)
+  {
+    result = INT32_MIN;
+  }
+  return result;
 }
 
 // overload 2
