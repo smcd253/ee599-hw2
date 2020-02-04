@@ -84,6 +84,7 @@ void Solution::remove_odds(std::vector<int>& input)
 std::vector<int> Solution::concat(std::vector<int>& input1, std::vector<int>& input2)
 {
     std::vector<int> result;
+    // result.reserve(input1.size() + input2.size());
     std::vector<int>::iterator it;
 
     for (it = input1.begin(); it != input1.end(); it++)
