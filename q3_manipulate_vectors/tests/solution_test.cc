@@ -141,6 +141,38 @@ TEST(REVERSE_TEST, SINGLETON) {
   EXPECT_EQ(expected, my_vector);
 }
 
+TEST(REVERSE_TEST, DOUBLE_ENTRY) {
+  Solution solution;
+  std::vector<int> my_vector = {1, 2};
+  solution.reverse(my_vector);
+  std::vector<int> expected = {2, 1};
+  EXPECT_EQ(expected, my_vector);
+}
+
+TEST(REVERSE_TEST, NEGATIVES) {
+  Solution solution;
+  std::vector<int> my_vector = {-1, -2, -3};
+  solution.reverse(my_vector);
+  std::vector<int> expected = {-3, -2, -1}};
+  EXPECT_EQ(expected, my_vector);
+}
+
+TEST(REVERSE_TEST, LARGE) {
+  Solution solution;
+  std::vector<int> my_vector;
+  std::vector<int> expected;
+  for (int i = 0; i < INT16_MAX; i++)
+  {
+    my_vector.push_back(i);
+  }
+  for (int i = INT16_MAX - 1; i > 0=; i++)
+  {
+    expected.push_back(i);
+  }
+  solution.reverse(my_vector);
+  EXPECT_EQ(expected, my_vector);
+}
+
 /********************* Solution::remove_odds() *********************/
 TEST(REMOVE_ODDS_TEST, STANDARD) {
   Solution solution;
